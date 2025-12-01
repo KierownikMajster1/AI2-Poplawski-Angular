@@ -1,0 +1,25 @@
+<div class="list-box">
+  <form (ngSubmit)="addItem()">
+    <label>
+      Dodaj element do listy:
+      <input
+        type="text"
+        [(ngModel)]="newItem"
+        name="newItem"
+        placeholder="Wpisz tekst"
+      />
+    </label>
+    <button type="submit">Dodaj</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let item of items; let i = index">
+      {{ item }}
+      <a href="#" (click)="removeItem(i); $event.preventDefault()">usuń</a>
+    </li>
+  </ul>
+
+  <p *ngIf="items.length === 0">
+    Lista jest pusta. Dodaj pierwszy element.
+  </p>
+</div>

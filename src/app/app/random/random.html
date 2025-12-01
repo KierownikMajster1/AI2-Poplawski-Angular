@@ -1,0 +1,17 @@
+<div class="random-box">
+  <p>
+    Zakres losowania:
+    <strong>1 – {{ max }}</strong>
+  </p>
+
+  <button (click)="generate()">Wylosuj liczbę</button>
+
+  <p *ngIf="currentValue !== null">
+    Aktualnie wylosowana liczba:
+    <strong>{{ currentValue }}</strong>
+  </p>
+
+  <p *ngIf="comment" [ngClass]="commentClass">
+    {{ comment }}
+  </p>
+</div>
