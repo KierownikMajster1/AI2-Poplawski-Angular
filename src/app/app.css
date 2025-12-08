@@ -1,12 +1,19 @@
-h1 {
-  text-align: center;
-  margin-top: 20px;
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  margin-bottom: 20px;
 }
 
-h2 {
-  margin-top: 30px;
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
 }
 
-hr {
-  margin: 20px 0;
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+main {
+  padding: 0 20px 20px;
 }

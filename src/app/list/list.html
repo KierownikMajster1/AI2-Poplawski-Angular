@@ -1,0 +1,20 @@
+<h2>Lista osób</h2>
+
+<button (click)="goToAdd()">Dodaj nową osobę</button>
+
+<hr />
+
+@if (people.length === 0) {
+  <p>Brak danych w LocalStorage.</p>
+} @else {
+  <ul>
+    @for (p of people; track $index; let i = $index) {
+      <li>
+        <strong>{{ p.firstName }} {{ p.familyName }}</strong>
+        (wiek: {{ p.age ?? 'brak' }})
+        <button (click)="goToDetails(i)">Szczegóły</button>
+        <button (click)="delete(i)">Usuń</button>
+      </li>
+    }
+  </ul>
+}
