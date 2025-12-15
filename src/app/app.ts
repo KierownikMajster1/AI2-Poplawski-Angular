@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RandomComponent } from './app/random/random';
-import { ListComponent } from './app/list/list';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RandomComponent, ListComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  welcomeText: string = 'Aplikacja Angular';
+  title = 'Person Manager';
 }

@@ -1,0 +1,23 @@
+<h2>Lista osób</h2>
+
+<button (click)="goToAdd()">Dodaj nową osobę</button>
+
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<hr />
+
+@if (people.length === 0) {
+  <p>Brak danych (baza jest pusta).</p>
+} @else {
+  <ul>
+    @for (p of people; track p.id; let i = $index) {
+      <li>
+        <strong>{{ p.firstName }} {{ p.familyName }}</strong>
+        (wiek: {{ p.age ?? 'brak' }})
+
+        <a [routerLink]="['/details', p.id]">Szczegóły</a>
+        <button (click)="delete(p)">Usuń</button>
+      </li>
+    }
+  </ul>
+}
