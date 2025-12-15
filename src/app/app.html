@@ -1,15 +1,14 @@
-<h1>{{ welcomeText }}</h1>
+<header>
+  <h1>{{ title }}</h1>
 
-<hr />
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Lista osób
+    </a>
+    <a routerLink="/add" routerLinkActive="active">Dodaj osobę</a>
+  </nav>
+</header>
 
-<h2>Komponenty Random</h2>
-<p>Pierwszy Random – zakres 1 do 10</p>
-<app-random [max]="10"></app-random>
-
-<p>Drugi Random – zakres 1 do 100</p>
-<app-random [max]="100"></app-random>
-
-<hr />
-
-<h2>Komponent List</h2>
-<app-list></app-list>
+<main>
+  <router-outlet></router-outlet>
+</main>

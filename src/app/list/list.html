@@ -1,0 +1,23 @@
+<h2>Lista osób</h2>
+
+<button (click)="goToAdd()">Dodaj nową osobę</button>
+
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<hr />
+
+<ng-container *ngIf="people$ | async as people">
+  <p *ngIf="people.length === 0 && !errorMessage">
+    Brak danych (baza jest pusta).
+  </p>
+
+  <ul *ngIf="people.length > 0">
+    <li *ngFor="let p of people; let i = index">
+      <strong>{{ p.firstName }} {{ p.familyName }}</strong>
+      (wiek: {{ p.age ?? 'brak' }})
+
+      <a [routerLink]="['/details', p.id]">Szczegóły</a>
+      <button (click)="delete(p)">Usuń</button>
+    </li>
+  </ul>
+</ng-container>
